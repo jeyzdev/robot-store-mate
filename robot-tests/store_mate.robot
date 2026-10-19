@@ -7,9 +7,11 @@ Test Timeout      2 minutes
 
 *** Test Cases ***
 SPRS-TC-002: Checkout Without Selection Keeps Payment Disabled
-    [Documentation]    เพิ่มสินค้าในตะกร้า เอาเครื่องหมายเลือกออก และตรวจว่าชำระเงินไม่ได้
+    [Documentation]    ไม่เลือกสินค้าในตะกร้าแล้วปุ่มชำระเงินต้อง Disabled
     Login To Storefront
-    Open Product
+    Open Cart
+    Clear Cart If Needed
+    Open Product From Home
     Click    css=[data-test="btn-add-to-cart"]
     Open Cart
     ${checked}=    Get Checkbox State    css=[data-test="checkbox-product-53"]
@@ -23,7 +25,7 @@ SPRS-TC-002: Checkout Without Selection Keeps Payment Disabled
     Should Not Match Regexp    ${url}    (?i).*/(payment|checkout).*
 
 SPRS-TC-003: Empty Cart State
-    [Documentation]    ตรวจสอบข้อความและรายการสินค้าในตะกร้าว่าง
+    [Documentation]    ล้างสินค้าเดิมและตรวจสอบสถานะตะกร้าว่าง
     Login To Storefront
     Open Cart
     Clear Cart If Needed
@@ -32,38 +34,39 @@ SPRS-TC-003: Empty Cart State
     Should Be Equal As Integers    ${count}    0
 
 SPRS-TC-004: Update Product Quantity And Verify Total
-    [Documentation]    เพิ่มจำนวนสินค้าจากหนึ่งเป็นสองและตรวจสอบยอดรวม
+    [Documentation]    เปลี่ยนจำนวนสินค้าเป็นสองและตรวจยอดรวม ฿400
     Login To Storefront
     Open Cart
     Clear Cart If Needed
-    Open Product
+    Open Product From Home
     Click    css=[data-test="btn-add-to-cart"]
     Open Cart
     ${quantity_input_count}=    Get Element Count    css=input[type="number"]
     IF    ${quantity_input_count} > 0
+        Get Property    css=input[type="number"]    value    ==    1
         Fill Text    css=input[type="number"]    2
         Press Keys    css=input[type="number"]    ENTER
     ELSE
         Click    css=[data-test="increase-product"]
     END
-    Wait For Elements State    css=[data-test="item-quantity"]    visible
     Get Text    css=[data-test="item-quantity"]    ==    2
     Wait For Elements State    text=฿400    visible
 
 SPRS-TC-005: Login With Valid Credentials
-    [Documentation]    เข้าสู่ระบบด้วยบัญชีทดสอบที่ถูกต้อง
+    [Documentation]    เข้าสู่ระบบด้วยข้อมูลที่ถูกต้องและตรวจหน้าแรกหลังล็อกอิน
     Open Login Dialog
     Submit Login
     Wait For Elements State    css=[data-test="home-button"]    visible    timeout=30s
 
-SPRS-TC-001: Successful Payment
-    [Documentation]    เพิ่มสินค้าหนึ่งชิ้น ตรวจสอบคำสั่งซื้อ และชำระเงินสำเร็จ
+SPRS-TC-006: Successful Credit Card Payment
+    [Documentation]    ชำระเงินสำเร็จด้วยบัตรทดสอบ Stripe และตรวจสอบออเดอร์ล่าสุด
     Login To Storefront
     Open Cart
     Clear Cart If Needed
-    Open Product
+    Open Product From Home
     Click    css=[data-test="btn-add-to-cart"]
     Open Cart
+    Set Cart Quantity To One
     Get Text    css=[data-test="item-quantity"]    ==    1
     Check Checkbox    css=[data-test="checkbox-product-53"]
     Click    css=[data-test="btn-payment"]
@@ -75,13 +78,46 @@ SPRS-TC-001: Successful Payment
     Get Text    role=main    *=    ยอดชำระทั้งหมด
     Get Text    role=main    *=    ฿ 200
     Get Text    role=main    *=    ยืนยันการชำระเงิน
-    Click    css=[data-test="select-destination-desktop"]
+    Click    css=[data-test="select-credit-desktop"]
+    ${saved_card_count}=    Get Element Count    xpath=//button[contains(., "TEST CUSTOMER") and contains(., "4242")]
+    IF    ${saved_card_count} == 0
+        Click    css=[data-test="btn-add-credit-card-desktop"]
+        ${url}=    Get Url
+        Should Contain    ${url}    /add-credit-card
+        Fill Text    css=#cardName    TEST CUSTOMER
+        Fill Text    css=[data-test="card-number-input"] iframe >>> input[name="cardnumber"]    4242 4242 4242 4242
+        Fill Text    css=[data-test="card-expiry-input"] iframe >>> input[name="exp-date"]    12 / 30
+        Fill Text    css=[data-test="card-cvc-input"] iframe >>> input[name="cvc"]    123
+        Click    xpath=(//button[normalize-space(.)="ยืนยันข้อมูลบัตร"])[1]
+        Wait For Elements State    css=[data-test="address"]    visible
+        Click    css=[data-test="select-credit-desktop"]
+    END
+    Click    xpath=(//button[contains(., "TEST CUSTOMER") and contains(., "4242")])[1]
     Click    css=[data-test="btn-confirm-payment-desktop"]
-    ${newest_order}=    Set Variable    xpath=(//*[starts-with(@data-test, 'order-card-')])[1]
-    Wait For Elements State    ${newest_order}    visible    timeout=60s
+    Wait For Elements State    xpath=(//*[starts-with(@data-test, 'order-card-')])[1]    visible    timeout=60s
     ${url}=    Get Url
     Should Contain    ${url}    /orders
-    Get Text    ${newest_order}//*[@data-test="order-item-name"]    *=    พิเศษสบู่ 3 ก้อน
+    Get Text    xpath=(//*[starts-with(@data-test, 'order-card-')])[1]//*[@data-test="order-item-name"]    *=    พิเศษสบู่ 3 ก้อน
+
+SPRS-TC-007: Credit Card Details Are Required
+    [Documentation]    ไม่กรอกข้อมูลบัตรแล้วปุ่มยืนยันข้อมูลบัตรต้อง Disabled
+    Login To Storefront
+    Open Cart
+    Clear Cart If Needed
+    Open Product From Home
+    Click    css=[data-test="btn-add-to-cart"]
+    Open Cart
+    Check Checkbox    css=[data-test="checkbox-product-53"]
+    Click    css=[data-test="btn-payment"]
+    Click    css=[data-test="select-credit-desktop"]
+    Click    css=[data-test="btn-add-credit-card-desktop"]
+    ${url}=    Get Url
+    Should Contain    ${url}    /add-credit-card
+    Get Property    css=#cardName    value    ==    ${EMPTY}
+    ${states}=    Get Element States    xpath=//button[normalize-space(.)="ยืนยันข้อมูลบัตร"]
+    Should Contain    ${states}    disabled
+    ${url}=    Get Url
+    Should Not Contain    ${url}    /orders
 
 *** Keywords ***
 Set Suite Variables
@@ -92,7 +128,7 @@ Set Suite Variables
 Open Store
     New Browser    chromium    headless=${TRUE}
     New Context
-    New Page    ${BASE_URL}
+    New Page    ${BASE_URL}    wait_until=domcontentloaded
 
 Open Login Dialog
     Click    css=[data-test="login-btn"]
@@ -109,18 +145,34 @@ Submit Login
 Login To Storefront
     Open Login Dialog
     Submit Login
-    Go To    ${BASE_URL}product/53
-    ${current_url}=    Get Url
-    Log    Storefront product URL: ${current_url}
+    Go To    ${BASE_URL}product/53    wait_until=domcontentloaded
     Wait For Elements State    css=[data-test="click-shop-cart"]    visible    timeout=30s
 
-Open Product
-    Go To    ${BASE_URL}product/53
+Open Product From Home
+    Click    css=[data-test="home-button"]
+    Click    xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]
     Wait For Elements State    css=[data-test="btn-add-to-cart"]    enabled    timeout=30s
 
 Open Cart
     Wait For Elements State    css=[data-test="click-shop-cart"]    visible    timeout=30s
     Click    css=[data-test="click-shop-cart"]
+
+Set Cart Quantity To One
+    ${quantity_input_count}=    Get Element Count    css=input[type="number"]
+    IF    ${quantity_input_count} > 0
+        ${quantity}=    Get Property    css=input[type="number"]    value
+        IF    $quantity != '1'
+            Fill Text    css=input[type="number"]    1
+            Press Keys    css=input[type="number"]    ENTER
+        END
+    ELSE
+        ${quantity}=    Get Text    css=[data-test="item-quantity"]
+        ${quantity}=    Convert To Integer    ${quantity}
+        WHILE    ${quantity} > 1
+            Click    css=[data-test="decrease-product"]
+            ${quantity}=    Evaluate    ${quantity} - 1
+        END
+    END
 
 Clear Cart If Needed
     ${remove_all}=    Set Variable    xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]

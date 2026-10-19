@@ -1,0 +1,2321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.15.0rc3 on win32)" generated="2026-10-18T14:16:27.044076" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot-Tests" source="D:\Final-Project\test\robot-store-mate\robot-tests">
+<suite id="s1-s1" name="Store Mate" source="D:\Final-Project\test\robot-store-mate\robot-tests\store_mate.robot">
+<kw name="Set Suite Variables" type="SETUP">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:27.438589" level="INFO">${BASE_URL} = https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>https://storemate-final.vercel.app/</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-18T14:16:27.438055" elapsed="0.000586"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:27.439259" level="INFO">${TEST_EMAIL} = test2@gmail.com</msg>
+<arg>${TEST_EMAIL}</arg>
+<arg>%{STOREMATE_TEST_EMAIL=test2@gmail.com}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-18T14:16:27.438785" elapsed="0.000519"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:27.439974" level="INFO">${TEST_PASSWORD} = 123456Za_</msg>
+<arg>${TEST_PASSWORD}</arg>
+<arg>%{STOREMATE_TEST_PASSWORD=123456Za_}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-18T14:16:27.439434" elapsed="0.000628"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:27.437449" elapsed="0.002748"/>
+</kw>
+<test id="s1-s1-t1" name="SPRS-TC-002: Checkout Without Selection Keeps Payment Disabled" line="9">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-18T14:16:27.444805" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\306c23d6-6a52-4546-b510-440f86f51a38"}</msg>
+<msg time="2026-10-18T14:16:27.446895" level="INFO">Starting Browser process D:\Final-Project\test\robot-store-mate\.venv\Lib\site-packages\BrowserBatteries\bin\wrapper\index.js using at 127.0.0.1:49830</msg>
+<msg time="2026-10-18T14:16:28.614328" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\306c23d6-6a52-4546-b510-440f86f51a38"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:27.442458" elapsed="1.172154"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-18T14:16:28.617877" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-18T14:16:28.632749" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-18T14:16:28.632806" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:28.615095" elapsed="0.017858"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-18T14:16:29.107976" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-18T14:16:28.633146" elapsed="0.475000"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:27.442000" elapsed="1.666248"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:29.110011" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:29.109244" elapsed="0.283212"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:29.606168" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:29.392930" elapsed="0.213529"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:29.108977" elapsed="0.497886"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:29.611752" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:29.608765" elapsed="0.024053"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:29.634060" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:29.633027" elapsed="0.010638"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:29.644918" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:29.643857" elapsed="0.058213"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:30.510172" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:29.702464" elapsed="0.807997"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:33.454237" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:30.510838" elapsed="2.943800"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:33.467907" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.455139" elapsed="0.013125"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:29.607274" elapsed="3.861273"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-18T14:16:33.618542" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.468793" elapsed="0.149957"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:33.735104" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.618980" elapsed="0.116289"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:29.108554" elapsed="4.626821"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:33.746112" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.736271" elapsed="0.010100"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:33.748446" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.746668" elapsed="0.037832"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:33.735738" elapsed="0.048939"/>
+</kw>
+<kw name="Clear Cart If Needed">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:33.788798" level="INFO">${remove_all} = xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</msg>
+<var>${remove_all}</var>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.786290" elapsed="0.002622"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:33.792081" level="INFO">${empty_cart} = xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</msg>
+<var>${empty_cart}</var>
+<arg>xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.789298" elapsed="0.002854"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:34.021495" level="INFO">Waited for Element with selector xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:33.792455" elapsed="0.229433"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:16:34.028509" level="INFO">${item_count} = 1</msg>
+<var>${item_count}</var>
+<arg>${remove_all}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.022239" elapsed="0.006315"/>
+</kw>
+<if>
+<branch type="IF" condition="${item_count} &gt; 0">
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="radio-all-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.029415" elapsed="0.043020"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:34.074751" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]'.</msg>
+<arg>${remove_all}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.072859" elapsed="0.059535"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:34.134466" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ยืนยัน"]'.</msg>
+<arg>xpath=//button[normalize-space(.)="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.132763" elapsed="0.411786"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:34.028741" elapsed="0.515991"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:16:34.028676" elapsed="0.516197"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:34.883012" level="INFO">Waited for Element with selector xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>${empty_cart}</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.545257" elapsed="0.338273"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:33.785317" elapsed="1.098683"/>
+</kw>
+<kw name="Open Product From Home">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:34.888961" level="INFO">Clicks the element 'css=[data-test="home-button"]'.</msg>
+<arg>css=[data-test="home-button"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.886554" elapsed="0.041208"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:34.928756" level="INFO">Clicks the element 'xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]'.</msg>
+<arg>xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:34.927918" elapsed="0.384081"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:36.155403" level="INFO">Waited for Element with selector css=[data-test="btn-add-to-cart"] at state enabled</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:35.312183" elapsed="0.843406"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:34.884757" elapsed="1.270946"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:36.157256" level="INFO">Clicks the element 'css=[data-test="btn-add-to-cart"]'.</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:36.156126" elapsed="0.053139"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:36.222116" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:36.212097" elapsed="0.010394"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:36.225585" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:36.222910" elapsed="0.039018"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:36.210363" elapsed="0.051658"/>
+</kw>
+<kw name="Get Checkbox State" owner="Browser">
+<msg time="2026-10-18T14:16:37.107700" level="INFO">Retrieved dom property for element css=[data-test="checkbox-product-53"] containing false</msg>
+<msg time="2026-10-18T14:16:37.107791" level="INFO">Checkbox is unchecked</msg>
+<msg time="2026-10-18T14:16:37.108136" level="INFO">${checked} = False</msg>
+<var>${checked}</var>
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the state of the checkbox found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:36.262315" elapsed="0.845876"/>
+</kw>
+<if>
+<branch type="IF" condition="${checked}">
+<kw name="Uncheck Checkbox" owner="Browser">
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Unchecks the checkbox found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:37.109721" elapsed="0.000309"/>
+</kw>
+<status status="NOT RUN" start="2026-10-18T14:16:37.108904" elapsed="0.001298"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:16:37.108827" elapsed="0.001482"/>
+</if>
+<kw name="Get Checkbox State" owner="Browser">
+<msg time="2026-10-18T14:16:37.131787" level="INFO">Retrieved dom property for element css=[data-test="checkbox-product-53"] containing false</msg>
+<msg time="2026-10-18T14:16:37.131878" level="INFO">Checkbox is unchecked</msg>
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<arg>==</arg>
+<arg>unchecked</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the state of the checkbox found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.111636" elapsed="0.020477"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-18T14:16:37.171457" level="INFO">States are: ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<msg time="2026-10-18T14:16:37.171656" level="INFO">${states} = ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<var>${states}</var>
+<arg>css=[data-test="btn-payment"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.132619" elapsed="0.039071"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${states}</arg>
+<arg>disabled</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.172146" elapsed="0.000868"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-18T14:16:37.175899" level="INFO">${url} = https://storemate-final.vercel.app/shopping-cart</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.173367" elapsed="0.002588"/>
+</kw>
+<kw name="Should Not Match Regexp" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>(?i).*/(payment|checkout).*</arg>
+<doc>Fails if the `string` matches the regular expression `pattern`.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.177062" elapsed="0.001771"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-18T14:16:37.290953" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.179304" elapsed="0.111864"/>
+</kw>
+<doc>ไม่เลือกสินค้าในตะกร้าแล้วปุ่มชำระเงินต้อง Disabled</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-18T14:16:27.440463" elapsed="9.850964"/>
+</test>
+<test id="s1-s1-t2" name="SPRS-TC-003: Empty Cart State" line="27">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-18T14:16:37.302639" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\a013d3ae-69d6-4bfd-aef6-69beeef4fb9f"}</msg>
+<msg time="2026-10-18T14:16:37.374886" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\a013d3ae-69d6-4bfd-aef6-69beeef4fb9f"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.301379" elapsed="0.073808"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-18T14:16:37.377231" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-18T14:16:37.383017" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-18T14:16:37.383076" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.375598" elapsed="0.007591"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-18T14:16:37.895850" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.383363" elapsed="0.512652"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:37.300877" elapsed="0.595224"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:37.897725" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:37.897078" elapsed="0.139419"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:38.356502" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:38.036674" elapsed="0.320198"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:37.896791" elapsed="0.460222"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:38.358260" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:38.357578" elapsed="0.008415"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:38.366952" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:38.366151" elapsed="0.010136"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:38.377432" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:38.376443" elapsed="0.057168"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:39.245068" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:38.433810" elapsed="0.811428"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:42.244123" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:39.245424" elapsed="2.999014"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:42.251106" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.244870" elapsed="0.006551"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:38.357159" elapsed="3.894479"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-18T14:16:42.389966" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.251919" elapsed="0.138239"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:42.507950" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.390411" elapsed="0.117725"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:37.896356" elapsed="4.611893"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:42.515105" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.509255" elapsed="0.006101"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:42.517390" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.515604" elapsed="0.036820"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:42.508680" elapsed="0.043921"/>
+</kw>
+<kw name="Clear Cart If Needed">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:42.557022" level="INFO">${remove_all} = xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</msg>
+<var>${remove_all}</var>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.555075" elapsed="0.002056"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:42.559959" level="INFO">${empty_cart} = xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</msg>
+<var>${empty_cart}</var>
+<arg>xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.557497" elapsed="0.002577"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:42.772642" level="INFO">Waited for Element with selector xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.560521" elapsed="0.212332"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:16:42.777527" level="INFO">${item_count} = 1</msg>
+<var>${item_count}</var>
+<arg>${remove_all}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.773057" elapsed="0.004525"/>
+</kw>
+<if>
+<branch type="IF" condition="${item_count} &gt; 0">
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="radio-all-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.778686" elapsed="0.062512"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:42.843805" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]'.</msg>
+<arg>${remove_all}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.841590" elapsed="0.075901"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:42.920757" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ยืนยัน"]'.</msg>
+<arg>xpath=//button[normalize-space(.)="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:42.917986" elapsed="0.413294"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:42.777772" elapsed="0.553581"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:16:42.777728" elapsed="0.553668"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:43.640799" level="INFO">Waited for Element with selector xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>${empty_cart}</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.331536" elapsed="0.309688"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:42.553673" elapsed="1.087745"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:43.655138" level="INFO">Waited for Element with selector text=ไม่มีสินค้าในรถเข็น at state visible</msg>
+<arg>text=ไม่มีสินค้าในรถเข็น</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.642372" elapsed="0.013048"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:16:43.664626" level="INFO">${count} = 0</msg>
+<var>${count}</var>
+<arg>css=[data-test="order-item"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.655994" elapsed="0.008705"/>
+</kw>
+<kw name="Should Be Equal As Integers" owner="BuiltIn">
+<msg time="2026-10-18T14:16:43.666386" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${count}</arg>
+<arg>0</arg>
+<doc>Fails if objects are unequal after converting them to integers.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.665215" elapsed="0.001338"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-18T14:16:43.797957" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.667147" elapsed="0.130971"/>
+</kw>
+<doc>ล้างสินค้าเดิมและตรวจสอบสถานะตะกร้าว่าง</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-18T14:16:37.297745" elapsed="6.500694"/>
+</test>
+<test id="s1-s1-t3" name="SPRS-TC-004: Update Product Quantity And Verify Total" line="36">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-18T14:16:43.808632" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\b2630ded-3d1c-46c0-97fa-6ed60e09af4e"}</msg>
+<msg time="2026-10-18T14:16:43.901709" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\b2630ded-3d1c-46c0-97fa-6ed60e09af4e"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.807688" elapsed="0.094270"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-18T14:16:43.903951" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-18T14:16:43.909395" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-18T14:16:43.909451" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.902398" elapsed="0.007160"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-18T14:16:44.441465" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-18T14:16:43.909821" elapsed="0.531834"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:43.807161" elapsed="0.634589"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:44.443468" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:44.442837" elapsed="0.139459"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:44.891927" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:44.582496" elapsed="0.309740"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:44.442563" elapsed="0.449849"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:44.894551" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:44.893387" elapsed="0.020760"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:44.916529" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:44.914455" elapsed="0.020607"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:44.936683" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:44.935354" elapsed="0.070198"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:45.886234" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:45.005754" elapsed="0.880655"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:48.803539" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:45.886579" elapsed="2.917386"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:48.813024" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:48.804321" elapsed="0.008984"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:44.892689" elapsed="3.920786"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-18T14:16:48.949399" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-18T14:16:48.813754" elapsed="0.136013"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:49.080919" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:48.950077" elapsed="0.131161"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:44.442118" elapsed="4.639322"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:49.091835" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.083707" elapsed="0.008325"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:49.094064" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.092301" elapsed="0.051444"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:49.082342" elapsed="0.061595"/>
+</kw>
+<kw name="Clear Cart If Needed">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:49.147670" level="INFO">${remove_all} = xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</msg>
+<var>${remove_all}</var>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.145642" elapsed="0.002132"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:16:49.149826" level="INFO">${empty_cart} = xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</msg>
+<var>${empty_cart}</var>
+<arg>xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.148118" elapsed="0.001773"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:49.368373" level="INFO">Waited for Element with selector xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.150286" elapsed="0.218436"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:16:49.377375" level="INFO">${item_count} = 0</msg>
+<var>${item_count}</var>
+<arg>${remove_all}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.369078" elapsed="0.008398"/>
+</kw>
+<if>
+<branch type="IF" condition="${item_count} &gt; 0">
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="radio-all-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:49.378667" elapsed="0.000330"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>${remove_all}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:49.379299" elapsed="0.000250"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>xpath=//button[normalize-space(.)="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:49.379807" elapsed="0.000224"/>
+</kw>
+<status status="NOT RUN" start="2026-10-18T14:16:49.377735" elapsed="0.002407"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:16:49.377683" elapsed="0.002546"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:49.392062" level="INFO">Waited for Element with selector xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>${empty_cart}</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.380488" elapsed="0.011964"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:49.144605" elapsed="0.248091"/>
+</kw>
+<kw name="Open Product From Home">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:49.396915" level="INFO">Clicks the element 'css=[data-test="home-button"]'.</msg>
+<arg>css=[data-test="home-button"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.394705" elapsed="0.038695"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:49.435757" level="INFO">Clicks the element 'xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]'.</msg>
+<arg>xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.433674" elapsed="0.332369"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:50.628461" level="INFO">Waited for Element with selector css=[data-test="btn-add-to-cart"] at state enabled</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:49.766296" elapsed="0.862364"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:49.393556" elapsed="1.235222"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:50.630086" level="INFO">Clicks the element 'css=[data-test="btn-add-to-cart"]'.</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:50.629133" elapsed="0.045687"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:50.684208" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:50.676551" elapsed="0.007872"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:50.686955" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:50.684776" elapsed="0.068427"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:50.675447" elapsed="0.077991"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:16:50.763908" level="INFO">${quantity_input_count} = 0</msg>
+<var>${quantity_input_count}</var>
+<arg>css=input[type="number"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:50.754178" elapsed="0.009835"/>
+</kw>
+<if>
+<branch type="IF" condition="${quantity_input_count} &gt; 0">
+<kw name="Get Property" owner="Browser">
+<arg>css=input[type="number"]</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:50.766124" elapsed="0.000408"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<arg>css=input[type="number"]</arg>
+<arg>2</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:50.766960" elapsed="0.000341"/>
+</kw>
+<kw name="Press Keys" owner="Browser">
+<arg>css=input[type="number"]</arg>
+<arg>ENTER</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:16:50.767654" elapsed="0.000277"/>
+</kw>
+<status status="NOT RUN" start="2026-10-18T14:16:50.764859" elapsed="0.003246"/>
+</branch>
+<branch type="ELSE">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:50.771678" level="INFO">Clicks the element 'css=[data-test="increase-product"]'.</msg>
+<arg>css=[data-test="increase-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:50.768768" elapsed="0.876009"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:50.768219" elapsed="0.876708"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:16:50.764759" elapsed="0.880257"/>
+</if>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:16:51.996298" level="INFO">Text: ['2']</msg>
+<arg>css=[data-test="item-quantity"]</arg>
+<arg>==</arg>
+<arg>2</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:51.645625" elapsed="0.350863"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:52.007275" level="INFO">Waited for Element with selector text=฿400 at state visible</msg>
+<arg>text=฿400</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:51.997021" elapsed="0.010439"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-18T14:16:52.118720" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-18T14:16:52.008168" elapsed="0.110687"/>
+</kw>
+<doc>เปลี่ยนจำนวนสินค้าเป็นสองและตรวจยอดรวม ฿400</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-18T14:16:43.804306" elapsed="8.314746"/>
+</test>
+<test id="s1-s1-t4" name="SPRS-TC-005: Login With Valid Credentials" line="55">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-18T14:16:52.133089" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\3e79b223-410e-46e6-9b12-099dde76bd26"}</msg>
+<msg time="2026-10-18T14:16:52.211266" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\3e79b223-410e-46e6-9b12-099dde76bd26"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:52.131648" elapsed="0.079853"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-18T14:16:52.214011" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-18T14:16:52.219607" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-18T14:16:52.219663" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:52.212088" elapsed="0.007702"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-18T14:16:52.657774" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-18T14:16:52.220033" elapsed="0.437916"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:52.130488" elapsed="0.527546"/>
+</kw>
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:52.659550" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:52.658799" elapsed="0.160639"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:53.130650" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:52.819871" elapsed="0.311137"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:52.658365" elapsed="0.472873"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:53.135308" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:53.133227" elapsed="0.023199"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:53.158336" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:53.156809" elapsed="0.015344"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:53.174964" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:53.172680" elapsed="0.073344"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:54.070224" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:53.246369" elapsed="0.824189"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:57.111900" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:54.070806" elapsed="3.041550"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:57.120663" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.112932" elapsed="0.008056"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:53.132179" elapsed="3.988993"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:57.129609" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.122133" elapsed="0.007837"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-18T14:16:57.234800" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.130502" elapsed="0.104599"/>
+</kw>
+<doc>เข้าสู่ระบบด้วยข้อมูลที่ถูกต้องและตรวจหน้าแรกหลังล็อกอิน</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-18T14:16:52.126280" elapsed="5.109225"/>
+</test>
+<test id="s1-s1-t5" name="SPRS-TC-006: Successful Credit Card Payment" line="61">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-18T14:16:57.254499" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\0912175b-6ece-49e3-a5cb-e0f2793e062e"}</msg>
+<msg time="2026-10-18T14:16:57.353400" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\0912175b-6ece-49e3-a5cb-e0f2793e062e"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.251808" elapsed="0.101926"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-18T14:16:57.356293" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-18T14:16:57.362359" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-18T14:16:57.362417" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.354253" elapsed="0.008274"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-18T14:16:57.798612" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.362793" elapsed="0.436174"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:57.250334" elapsed="0.548734"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:57.801542" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.800571" elapsed="0.159357"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:58.274142" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:57.960373" elapsed="0.313983"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:57.800192" elapsed="0.474281"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:58.275986" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:58.275172" elapsed="0.016430"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:16:58.292903" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:58.291795" elapsed="0.013676"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:16:58.306802" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:16:58.305643" elapsed="0.046983"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:16:59.226447" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:58.352806" elapsed="0.873869"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:02.124705" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:16:59.226950" elapsed="2.898148"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:02.138517" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.125574" elapsed="0.013242"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:58.274656" elapsed="3.864344"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-18T14:17:02.269092" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.139237" elapsed="0.130222"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:02.383853" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.269902" elapsed="0.114154"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:16:57.799432" elapsed="4.584744"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:02.395781" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.385265" elapsed="0.010752"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:02.397683" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.396233" elapsed="0.056277"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:02.384640" elapsed="0.068077"/>
+</kw>
+<kw name="Clear Cart If Needed">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:17:02.457238" level="INFO">${remove_all} = xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</msg>
+<var>${remove_all}</var>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.455108" elapsed="0.002317"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:17:02.461211" level="INFO">${empty_cart} = xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</msg>
+<var>${empty_cart}</var>
+<arg>xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.458184" elapsed="0.003142"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:02.677554" level="INFO">Waited for Element with selector xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.461813" elapsed="0.216256"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:17:02.686023" level="INFO">${item_count} = 1</msg>
+<var>${item_count}</var>
+<arg>${remove_all}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.678798" elapsed="0.007320"/>
+</kw>
+<if>
+<branch type="IF" condition="${item_count} &gt; 0">
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="radio-all-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.687057" elapsed="0.068910"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:02.758762" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]'.</msg>
+<arg>${remove_all}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.756389" elapsed="0.039728"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:02.797067" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ยืนยัน"]'.</msg>
+<arg>xpath=//button[normalize-space(.)="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:02.796296" elapsed="0.382646"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:02.686348" elapsed="0.492660"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:17:02.686305" elapsed="0.492741"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:03.494836" level="INFO">Waited for Element with selector xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>${empty_cart}</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:03.179169" elapsed="0.315832"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:02.453724" elapsed="1.041364"/>
+</kw>
+<kw name="Open Product From Home">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:03.496466" level="INFO">Clicks the element 'css=[data-test="home-button"]'.</msg>
+<arg>css=[data-test="home-button"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:03.495824" elapsed="0.030867"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:03.527695" level="INFO">Clicks the element 'xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]'.</msg>
+<arg>xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:03.526844" elapsed="0.355540"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:04.744873" level="INFO">Waited for Element with selector css=[data-test="btn-add-to-cart"] at state enabled</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:03.882614" elapsed="0.862716"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:03.495403" elapsed="1.250146"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:04.746916" level="INFO">Clicks the element 'css=[data-test="btn-add-to-cart"]'.</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:04.745925" elapsed="0.054407"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:04.813880" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:04.802596" elapsed="0.011493"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:04.815070" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:04.814269" elapsed="0.043446"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:04.801176" elapsed="0.056626"/>
+</kw>
+<kw name="Set Cart Quantity To One">
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:17:04.862386" level="INFO">${quantity_input_count} = 0</msg>
+<var>${quantity_input_count}</var>
+<arg>css=input[type="number"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:04.858562" elapsed="0.003862"/>
+</kw>
+<if>
+<branch type="IF" condition="${quantity_input_count} &gt; 0">
+<kw name="Get Property" owner="Browser">
+<var>${quantity}</var>
+<arg>css=input[type="number"]</arg>
+<arg>value</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:04.862889" elapsed="0.000115"/>
+</kw>
+<if>
+<branch type="IF" condition="$quantity != '1'">
+<kw name="Fill Text" owner="Browser">
+<arg>css=input[type="number"]</arg>
+<arg>1</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:04.863235" elapsed="0.000075"/>
+</kw>
+<kw name="Press Keys" owner="Browser">
+<arg>css=input[type="number"]</arg>
+<arg>ENTER</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Types the given key combination into element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:04.863401" elapsed="0.000070"/>
+</kw>
+<status status="NOT RUN" start="2026-10-18T14:17:04.863089" elapsed="0.000416"/>
+</branch>
+<status status="NOT RUN" start="2026-10-18T14:17:04.863074" elapsed="0.000460"/>
+</if>
+<status status="NOT RUN" start="2026-10-18T14:17:04.862526" elapsed="0.001022"/>
+</branch>
+<branch type="ELSE">
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:05.702844" level="INFO">Text: ['1']</msg>
+<msg time="2026-10-18T14:17:05.702992" level="INFO">${quantity} = 1</msg>
+<var>${quantity}</var>
+<arg>css=[data-test="item-quantity"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:04.863734" elapsed="0.839277"/>
+</kw>
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2026-10-18T14:17:05.704033" level="INFO">${quantity} = 1</msg>
+<var>${quantity}</var>
+<arg>${quantity}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2026-10-18T14:17:05.703162" elapsed="0.000904"/>
+</kw>
+<while condition="${quantity} &gt; 1">
+<iter>
+<kw name="Click" owner="Browser">
+<arg>css=[data-test="decrease-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:05.704614" elapsed="0.000129"/>
+</kw>
+<kw name="Evaluate" owner="BuiltIn">
+<var>${quantity}</var>
+<arg>${quantity} - 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:05.704968" elapsed="0.000249"/>
+</kw>
+<status status="NOT RUN" start="2026-10-18T14:17:05.704139" elapsed="0.001186"/>
+</iter>
+<status status="NOT RUN" start="2026-10-18T14:17:05.704138" elapsed="0.001279"/>
+</while>
+<status status="PASS" start="2026-10-18T14:17:04.863568" elapsed="0.841930"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:17:04.862505" elapsed="0.843064"/>
+</if>
+<status status="PASS" start="2026-10-18T14:17:04.858153" elapsed="0.847563"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:05.725468" level="INFO">Text: ['1']</msg>
+<arg>css=[data-test="item-quantity"]</arg>
+<arg>==</arg>
+<arg>1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:05.706127" elapsed="0.019456"/>
+</kw>
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:05.726109" elapsed="0.062833"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:05.790883" level="INFO">Clicks the element 'css=[data-test="btn-payment"]'.</msg>
+<arg>css=[data-test="btn-payment"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:05.789413" elapsed="0.040300"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:06.169520" level="INFO">Waited for Element with selector css=[data-test="address"] at state visible</msg>
+<arg>css=[data-test="address"]</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:05.830323" elapsed="0.339784"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.189495" level="INFO">Text: ['123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150']</msg>
+<arg>css=[data-test="address"]</arg>
+<arg>*=</arg>
+<arg>123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.171152" elapsed="0.018536"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.207396" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200']</msg>
+<arg>css=[data-test="order-item"]</arg>
+<arg>*=</arg>
+<arg>X 1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.190419" elapsed="0.017127"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.216372" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200']</msg>
+<arg>css=[data-test="order-item"]</arg>
+<arg>*=</arg>
+<arg>฿ 200</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.207889" elapsed="0.008617"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.226110" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน']</msg>
+<arg>css=[data-test="product-name"]</arg>
+<arg>*=</arg>
+<arg>พิเศษสบู่ 3 ก้อน</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.216815" elapsed="0.009412"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.236140" level="INFO">Text: ['หน้าหลัก\nรถเข็น\nสรุปคำสั่งซื้อ\nสรุปคำสั่งซื้อ\nที่อยู่ในการจัดส่ง\ntest aieieie\n123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150\nเปลี่ยน\nพิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200\nเลือกช่องทางการชำระเงิน\n\nพร้อมเพย์ (PromptPay)\n\nสแกน QR Code เพื่อชำระเงินทันที\n\nบัตรเครดิต / บัตรเดบิต\n\nVisa , Mastercard\n\nเก็บเงินปลายทาง\n\nชำระเงินเมื่อได้รับสินค้า\n\nยอดชำระทั้งหมด\n฿ 200\nยืนยันการชำระเงิน']</msg>
+<arg>role=main</arg>
+<arg>*=</arg>
+<arg>ยอดชำระทั้งหมด</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.226611" elapsed="0.009667"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.245677" level="INFO">Text: ['หน้าหลัก\nรถเข็น\nสรุปคำสั่งซื้อ\nสรุปคำสั่งซื้อ\nที่อยู่ในการจัดส่ง\ntest aieieie\n123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150\nเปลี่ยน\nพิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200\nเลือกช่องทางการชำระเงิน\n\nพร้อมเพย์ (PromptPay)\n\nสแกน QR Code เพื่อชำระเงินทันที\n\nบัตรเครดิต / บัตรเดบิต\n\nVisa , Mastercard\n\nเก็บเงินปลายทาง\n\nชำระเงินเมื่อได้รับสินค้า\n\nยอดชำระทั้งหมด\n฿ 200\nยืนยันการชำระเงิน']</msg>
+<arg>role=main</arg>
+<arg>*=</arg>
+<arg>฿ 200</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.236738" elapsed="0.009059"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.255058" level="INFO">Text: ['หน้าหลัก\nรถเข็น\nสรุปคำสั่งซื้อ\nสรุปคำสั่งซื้อ\nที่อยู่ในการจัดส่ง\ntest aieieie\n123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150\nเปลี่ยน\nพิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200\nเลือกช่องทางการชำระเงิน\n\nพร้อมเพย์ (PromptPay)\n\nสแกน QR Code เพื่อชำระเงินทันที\n\nบัตรเครดิต / บัตรเดบิต\n\nVisa , Mastercard\n\nเก็บเงินปลายทาง\n\nชำระเงินเมื่อได้รับสินค้า\n\nยอดชำระทั้งหมด\n฿ 200\nยืนยันการชำระเงิน']</msg>
+<arg>role=main</arg>
+<arg>*=</arg>
+<arg>ยืนยันการชำระเงิน</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.246226" elapsed="0.008952"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:06.256234" level="INFO">Clicks the element 'css=[data-test="select-credit-desktop"]'.</msg>
+<arg>css=[data-test="select-credit-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.255487" elapsed="0.036463"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:17:06.295525" level="INFO">${saved_card_count} = 0</msg>
+<var>${saved_card_count}</var>
+<arg>xpath=//button[contains(., "TEST CUSTOMER") and contains(., "4242")]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.292229" elapsed="0.003333"/>
+</kw>
+<if>
+<branch type="IF" condition="${saved_card_count} == 0">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:06.297056" level="INFO">Clicks the element 'css=[data-test="btn-add-credit-card-desktop"]'.</msg>
+<arg>css=[data-test="btn-add-credit-card-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.296178" elapsed="0.062372"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-18T14:17:06.360577" level="INFO">${url} = https://storemate-final.vercel.app/add-credit-card</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.358700" elapsed="0.001909"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/add-credit-card</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.360746" elapsed="0.000833"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.362844" level="INFO">Fills the text 'TEST CUSTOMER' in the given field.</msg>
+<arg>css=#cardName</arg>
+<arg>TEST CUSTOMER</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.361794" elapsed="0.090729"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.453566" level="INFO">Fills the text '4242 4242 4242 4242' in the given field.</msg>
+<arg>css=[data-test="card-number-input"] iframe &gt;&gt;&gt; input[name="cardnumber"]</arg>
+<arg>4242 4242 4242 4242</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.452692" elapsed="0.215648"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.670334" level="INFO">Fills the text '12 / 30' in the given field.</msg>
+<arg>css=[data-test="card-expiry-input"] iframe &gt;&gt;&gt; input[name="exp-date"]</arg>
+<arg>12 / 30</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.668626" elapsed="0.047836"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:17:06.717446" level="INFO">Fills the text '123' in the given field.</msg>
+<arg>css=[data-test="card-cvc-input"] iframe &gt;&gt;&gt; input[name="cvc"]</arg>
+<arg>123</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.716618" elapsed="0.173138"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:06.890898" level="INFO">Clicks the element 'xpath=(//button[normalize-space(.)="ยืนยันข้อมูลบัตร"])[1]'.</msg>
+<arg>xpath=(//button[normalize-space(.)="ยืนยันข้อมูลบัตร"])[1]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.889930" elapsed="0.039285"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:08.823015" level="INFO">Waited for Element with selector css=[data-test="address"] at state visible</msg>
+<arg>css=[data-test="address"]</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:06.929446" elapsed="1.893738"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:08.824671" level="INFO">Clicks the element 'css=[data-test="select-credit-desktop"]'.</msg>
+<arg>css=[data-test="select-credit-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:08.823341" elapsed="0.023209"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:06.295829" elapsed="2.550926"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:17:06.295803" elapsed="2.551056"/>
+</if>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:08.848577" level="INFO">Clicks the element 'xpath=(//button[contains(., "TEST CUSTOMER") and contains(., "4242")])[1]'.</msg>
+<arg>xpath=(//button[contains(., "TEST CUSTOMER") and contains(., "4242")])[1]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:08.847473" elapsed="0.050607"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:08.899608" level="INFO">Clicks the element 'css=[data-test="btn-confirm-payment-desktop"]'.</msg>
+<arg>css=[data-test="btn-confirm-payment-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:08.898632" elapsed="0.052059"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:13.893544" level="INFO">Waited for Element with selector xpath=(//*[starts-with(@data-test, 'order-card-')])[1] at state visible</msg>
+<arg>xpath=(//*[starts-with(@data-test, 'order-card-')])[1]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:08.951474" elapsed="4.942366"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-18T14:17:13.897452" level="INFO">${url} = https://storemate-final.vercel.app/orders</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-18T14:17:13.894524" elapsed="0.002987"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/orders</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-18T14:17:13.898136" elapsed="0.001233"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-18T14:17:13.919469" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน']</msg>
+<arg>xpath=(//*[starts-with(@data-test, 'order-card-')])[1]//*[@data-test="order-item-name"]</arg>
+<arg>*=</arg>
+<arg>พิเศษสบู่ 3 ก้อน</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:13.899969" elapsed="0.019650"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-18T14:17:14.036263" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-18T14:17:13.920045" elapsed="0.116422"/>
+</kw>
+<doc>ชำระเงินสำเร็จด้วยบัตรทดสอบ Stripe และตรวจสอบออเดอร์ล่าสุด</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-18T14:16:57.242916" elapsed="16.793849"/>
+</test>
+<test id="s1-s1-t6" name="SPRS-TC-007: Credit Card Details Are Required" line="102">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-18T14:17:14.047413" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\d856d3a8-1ad1-40a7-92bf-8586b8045fd3"}</msg>
+<msg time="2026-10-18T14:17:14.124924" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\browser\\traces\\temp\\d856d3a8-1ad1-40a7-92bf-8586b8045fd3"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:17:14.046329" elapsed="0.078932"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-18T14:17:14.127487" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-18T14:17:14.132601" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-18T14:17:14.132662" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-18T14:17:14.125753" elapsed="0.007018"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-18T14:17:14.762764" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-18T14:17:14.133002" elapsed="0.629965"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:14.045600" elapsed="0.717476"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:14.765278" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:14.764386" elapsed="0.152045"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:15.231311" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:14.916603" elapsed="0.315014"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:14.763925" elapsed="0.467872"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:17:15.233076" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:15.232368" elapsed="0.011520"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-18T14:17:15.246002" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:15.244225" elapsed="0.012225"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:15.258560" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:15.256817" elapsed="0.056448"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:16.146394" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:15.313444" elapsed="0.833217"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:19.162661" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:16.146984" elapsed="3.015998"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:19.169392" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.163245" elapsed="0.006356"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:15.231940" elapsed="3.937963"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-18T14:17:19.313714" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.170107" elapsed="0.143859"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:19.435832" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.314263" elapsed="0.121959"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:14.763478" elapsed="4.672988"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:19.445218" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.438064" elapsed="0.007400"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:19.447367" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.445719" elapsed="0.054002"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:19.437270" elapsed="0.062589"/>
+</kw>
+<kw name="Clear Cart If Needed">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:17:19.503486" level="INFO">${remove_all} = xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</msg>
+<var>${remove_all}</var>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.501798" elapsed="0.001814"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-18T14:17:19.505304" level="INFO">${empty_cart} = xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</msg>
+<var>${empty_cart}</var>
+<arg>xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.503880" elapsed="0.001455"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:19.704050" level="INFO">Waited for Element with selector xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.505466" elapsed="0.198974"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-18T14:17:19.711077" level="INFO">${item_count} = 0</msg>
+<var>${item_count}</var>
+<arg>${remove_all}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.704856" elapsed="0.006292"/>
+</kw>
+<if>
+<branch type="IF" condition="${item_count} &gt; 0">
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="radio-all-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:19.712048" elapsed="0.000244"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>${remove_all}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:19.712518" elapsed="0.000181"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>xpath=//button[normalize-space(.)="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-18T14:17:19.712893" elapsed="0.000162"/>
+</kw>
+<status status="NOT RUN" start="2026-10-18T14:17:19.711339" elapsed="0.001793"/>
+</branch>
+<status status="PASS" start="2026-10-18T14:17:19.711301" elapsed="0.001895"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:19.724032" level="INFO">Waited for Element with selector xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>${empty_cart}</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.713433" elapsed="0.010950"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:19.500557" elapsed="0.224047"/>
+</kw>
+<kw name="Open Product From Home">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:19.728458" level="INFO">Clicks the element 'css=[data-test="home-button"]'.</msg>
+<arg>css=[data-test="home-button"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.726367" elapsed="0.048150"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:19.776096" level="INFO">Clicks the element 'xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]'.</msg>
+<arg>xpath=//a[contains(normalize-space(.), "พิเศษสบู่ 3")]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:19.774718" elapsed="0.359339"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:20.999131" level="INFO">Waited for Element with selector css=[data-test="btn-add-to-cart"] at state enabled</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:20.134279" elapsed="0.865005"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:19.725416" elapsed="1.273961"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:21.000619" level="INFO">Clicks the element 'css=[data-test="btn-add-to-cart"]'.</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:20.999743" elapsed="0.029606"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-18T14:17:21.037321" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-18T14:17:21.030428" elapsed="0.007096"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:21.039131" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:21.037891" elapsed="0.042551"/>
+</kw>
+<status status="PASS" start="2026-10-18T14:17:21.029785" elapsed="0.050830"/>
+</kw>
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:21.081139" elapsed="0.862263"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:21.944991" level="INFO">Clicks the element 'css=[data-test="btn-payment"]'.</msg>
+<arg>css=[data-test="btn-payment"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:21.943759" elapsed="0.033417"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:21.978358" level="INFO">Clicks the element 'css=[data-test="select-credit-desktop"]'.</msg>
+<arg>css=[data-test="select-credit-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:21.977625" elapsed="0.142571"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-18T14:17:22.125236" level="INFO">Clicks the element 'css=[data-test="btn-add-credit-card-desktop"]'.</msg>
+<arg>css=[data-test="btn-add-credit-card-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.122357" elapsed="0.085703"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-18T14:17:22.210485" level="INFO">${url} = https://storemate-final.vercel.app/add-credit-card</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.208315" elapsed="0.002252"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/add-credit-card</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.210869" elapsed="0.000701"/>
+</kw>
+<kw name="Get Property" owner="Browser">
+<msg time="2026-10-18T14:17:22.324595" level="INFO">Property: ''</msg>
+<arg>css=#cardName</arg>
+<arg>value</arg>
+<arg>==</arg>
+<arg>${EMPTY}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the ``property`` of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.211842" elapsed="0.112980"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-18T14:17:22.347335" level="INFO">States are: ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<msg time="2026-10-18T14:17:22.347488" level="INFO">${states} = ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<var>${states}</var>
+<arg>xpath=//button[normalize-space(.)="ยืนยันข้อมูลบัตร"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.325214" elapsed="0.022295"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${states}</arg>
+<arg>disabled</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.347832" elapsed="0.000950"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-18T14:17:22.352364" level="INFO">${url} = https://storemate-final.vercel.app/add-credit-card</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.349144" elapsed="0.003267"/>
+</kw>
+<kw name="Should Not Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/orders</arg>
+<doc>Fails if the `container` contains the `item`.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.352882" elapsed="0.000824"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-18T14:17:22.450216" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-18T14:17:22.354061" elapsed="0.096293"/>
+</kw>
+<doc>ไม่กรอกข้อมูลบัตรแล้วปุ่มยืนยันข้อมูลบัตรต้อง Disabled</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-18T14:17:14.042602" elapsed="8.407918"/>
+</test>
+<status status="PASS" start="2026-10-18T14:16:27.087095" elapsed="55.366859"/>
+</suite>
+<status status="PASS" start="2026-10-18T14:16:27.045467" elapsed="55.411840"/>
+</suite>
+<statistics>
+<total>
+<stat pass="6" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot-Tests" id="s1" pass="6" fail="0" skip="0">Robot-Tests</stat>
+<stat name="Store Mate" id="s1-s1" pass="6" fail="0" skip="0">Robot-Tests.Store Mate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

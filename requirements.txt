@@ -1,1 +1,6 @@
-robotframework-browser==19.0.0
+robotframework
+robotframework-seleniumlibrary
+selenium
+robotframework-requests
+robotframework-tidy
+robotframework-browser[bb]==20.6.0

@@ -1,0 +1,1071 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.5 (Python 3.15.0rc3 on win32)" generated="2026-10-12T10:30:03.256597" rpa="false" schemaversion="5">
+<suite id="s1" name="Robot-Tests" source="D:\Final-Project\test\robot-store-mate\robot-tests">
+<suite id="s1-s1" name="Store Mate" source="D:\Final-Project\test\robot-store-mate\robot-tests\store_mate.robot">
+<kw name="Set Suite Variables" type="SETUP">
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-12T10:30:03.657060" level="INFO">${BASE_URL} = https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<arg>https://storemate-final.vercel.app/</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-12T10:30:03.656524" elapsed="0.000589"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-12T10:30:03.657744" level="INFO">${TEST_EMAIL} = test2@gmail.com</msg>
+<arg>${TEST_EMAIL}</arg>
+<arg>%{STOREMATE_TEST_EMAIL=test2@gmail.com}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-12T10:30:03.657259" elapsed="0.000528"/>
+</kw>
+<kw name="Set Suite Variable" owner="BuiltIn">
+<msg time="2026-10-12T10:30:03.658268" level="INFO">${TEST_PASSWORD} = 123456Za_</msg>
+<arg>${TEST_PASSWORD}</arg>
+<arg>%{STOREMATE_TEST_PASSWORD=123456Za_}</arg>
+<doc>Makes the variable available everywhere within the scope of the current suite.</doc>
+<status status="PASS" start="2026-10-12T10:30:03.657909" elapsed="0.000391"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:03.655373" elapsed="0.002983"/>
+</kw>
+<test id="s1-s1-t1" name="SPRS-TC-002: Checkout Without Selection Keeps Payment Disabled" line="9">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-12T10:30:03.663199" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\fd8b269c-01f1-4512-b341-a27115ffab66"}</msg>
+<msg time="2026-10-12T10:30:03.665468" level="INFO">Starting Browser process D:\Final-Project\test\robot-store-mate\.venv\Lib\site-packages\BrowserBatteries\bin\wrapper\index.js using at 127.0.0.1:58656</msg>
+<msg time="2026-10-12T10:30:05.009198" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\fd8b269c-01f1-4512-b341-a27115ffab66"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:03.660675" elapsed="1.348918"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-12T10:30:05.014553" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-12T10:30:05.029251" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-12T10:30:05.029317" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:05.010857" elapsed="0.018587"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-12T10:30:08.770656" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-12T10:30:05.029636" elapsed="3.741363"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:03.660320" elapsed="5.110813"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:08.773519" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:08.772634" elapsed="0.119061"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:09.016596" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:08.891913" elapsed="0.125368"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:08.772171" elapsed="0.245401"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-12T10:30:09.019960" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:09.018674" elapsed="0.032340"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-12T10:30:09.053567" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:09.051676" elapsed="0.022724"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:09.076104" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:09.074718" elapsed="0.102288"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:10.024253" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:09.177925" elapsed="0.846641"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:12.977169" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:10.024908" elapsed="2.952724"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:12.992382" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:12.978270" elapsed="0.014538"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:09.017963" elapsed="3.975184"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-12T10:30:13.279376" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-12T10:30:12.993552" elapsed="0.286044"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-12T10:30:13.284185" level="INFO">${current_url} = https://storemate-final.vercel.app/product/53</msg>
+<var>${current_url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-12T10:30:13.279817" elapsed="0.004455"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-10-12T10:30:13.286493" level="INFO">Storefront product URL: https://storemate-final.vercel.app/product/53</msg>
+<arg>Storefront product URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-10-12T10:30:13.284686" elapsed="0.002003"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:13.400484" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:13.287058" elapsed="0.114027"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:08.771498" elapsed="4.630014"/>
+</kw>
+<kw name="Open Product">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-12T10:30:13.617092" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-12T10:30:13.407180" elapsed="0.210331"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:14.529339" level="INFO">Waited for Element with selector css=[data-test="btn-add-to-cart"] at state enabled</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:13.618178" elapsed="0.911420"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:13.404668" elapsed="1.125278"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:14.532285" level="INFO">Clicks the element 'css=[data-test="btn-add-to-cart"]'.</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:14.530452" elapsed="0.058100"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:14.597281" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:14.589860" elapsed="0.007740"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:14.599865" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:14.597956" elapsed="0.047690"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:14.589065" elapsed="0.056875"/>
+</kw>
+<kw name="Get Checkbox State" owner="Browser">
+<msg time="2026-10-12T10:30:15.516824" level="INFO">Retrieved dom property for element css=[data-test="checkbox-product-53"] containing false</msg>
+<msg time="2026-10-12T10:30:15.517006" level="INFO">Checkbox is unchecked</msg>
+<msg time="2026-10-12T10:30:15.517544" level="INFO">${checked} = False</msg>
+<var>${checked}</var>
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the state of the checkbox found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:14.646676" elapsed="0.870967"/>
+</kw>
+<if>
+<branch type="IF" condition="${checked}">
+<kw name="Uncheck Checkbox" owner="Browser">
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Unchecks the checkbox found by ``selector``.</doc>
+<status status="NOT RUN" start="2026-10-12T10:30:15.519865" elapsed="0.000699"/>
+</kw>
+<status status="NOT RUN" start="2026-10-12T10:30:15.518618" elapsed="0.002181"/>
+</branch>
+<status status="PASS" start="2026-10-12T10:30:15.518492" elapsed="0.002549"/>
+</if>
+<kw name="Get Checkbox State" owner="Browser">
+<msg time="2026-10-12T10:30:15.550729" level="INFO">Retrieved dom property for element css=[data-test="checkbox-product-53"] containing false</msg>
+<msg time="2026-10-12T10:30:15.550856" level="INFO">Checkbox is unchecked</msg>
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<arg>==</arg>
+<arg>unchecked</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the state of the checkbox found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.521781" elapsed="0.029505"/>
+</kw>
+<kw name="Get Element States" owner="Browser">
+<msg time="2026-10-12T10:30:15.617053" level="INFO">States are: ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<msg time="2026-10-12T10:30:15.617264" level="INFO">${states} = ['attached', 'visible', 'disabled', 'readonly', 'defocused']</msg>
+<var>${states}</var>
+<arg>css=[data-test="btn-payment"]</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Get the active states from the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.552326" elapsed="0.064979"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${states}</arg>
+<arg>disabled</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.617881" elapsed="0.001753"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-12T10:30:15.624261" level="INFO">${url} = https://storemate-final.vercel.app/shopping-cart</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.620023" elapsed="0.004377"/>
+</kw>
+<kw name="Should Not Match Regexp" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>(?i).*/(payment|checkout).*</arg>
+<doc>Fails if the `string` matches the regular expression `pattern`.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.624980" elapsed="0.001945"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-12T10:30:15.776993" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.627916" elapsed="0.149289"/>
+</kw>
+<doc>เพิ่มสินค้าในตะกร้า เอาเครื่องหมายเลือกออก และตรวจว่าชำระเงินไม่ได้</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-12T10:30:03.659569" elapsed="12.117886"/>
+</test>
+<test id="s1-s1-t2" name="SPRS-TC-003: Empty Cart State" line="25">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-12T10:30:15.792363" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\ffce9bfa-a07d-4ef0-9865-826c9cd55bed"}</msg>
+<msg time="2026-10-12T10:30:15.877588" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\ffce9bfa-a07d-4ef0-9865-826c9cd55bed"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.790844" elapsed="0.087104"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-12T10:30:15.881934" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-12T10:30:15.888197" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-12T10:30:15.888267" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:15.879159" elapsed="0.009597"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-12T10:30:25.989224" level="INFO">Load report of the page when the wait timed out:
+URL: https://storemate-final.vercel.app/
+Navigation committed: yes
+readyState: interactive
+DOMContentLoaded: 9563 ms, load: never fired
+Outstanding requests: 9
+GET https://www.googletagmanager.com/gtag/js?id=G-0NYGWZGWTK [script] open for 450 ms
+GET https://storemate-final.vercel.app/assets/ProductCard-CxaSUFz8.js [script] open for 257 ms
+GET https://storemate-final.vercel.app/assets/logo-BJfym8C_.png [image] open for 257 ms
+GET https://fonts.gstatic.com/s/anuphan/v6/2sDeZGxYgY7LkLT0mX4Dan29.woff2 [font] open for 215 ms
+GET https://fonts.gstatic.com/s/anuphan/v6/2sDeZGxYgY7LkLT0mWoDag.woff2 [font] open for 215 ms
+GET https://api.iconify.design/ph.json?icons=list%2Cmagnifying-glass [fetch] open for 208 ms
+GET https://api.iconify.design/fa6-brands.json?icons=facebook-f [fetch] open for 208 ms
+GET https://api.iconify.design/tdesign.json?icons=camera-filled [fetch] open for 207 ms
+GET https://api.iconify.design/material-symbols.json?icons=chat [fetch] open for 207 ms</msg>
+<msg time="2026-10-12T10:30:30.260118" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-1.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-1.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-12T10:30:30.260252" level="INFO">See also file:///D:/Final-Project/test/robot-store-mate/robot-test-result/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-12T10:30:30.264556" level="INFO">Removed failed page page=9e77a953-610e-462c-a4ae-75faf3f5a253 after failure handling</msg>
+<msg time="2026-10-12T10:30:30.264992" level="FAIL">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2026-10-12T10:30:15.889078" elapsed="14.420588">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</kw>
+<status status="FAIL" start="2026-10-12T10:30:15.790072" elapsed="14.519876">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-12T10:30:30.382024" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-12T10:30:30.310944" elapsed="0.071273"/>
+</kw>
+<doc>ตรวจสอบข้อความและรายการสินค้าในตะกร้าว่าง</doc>
+<timeout value="2 minutes"/>
+<status status="FAIL" start="2026-10-12T10:30:15.785896" elapsed="14.596578">Setup failed:
+TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</test>
+<test id="s1-s1-t3" name="SPRS-TC-004: Update Product Quantity And Verify Total" line="34">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-12T10:30:30.396125" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\fe58d09c-1911-4516-8e8f-d923e1e97c8a"}</msg>
+<msg time="2026-10-12T10:30:30.523976" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\fe58d09c-1911-4516-8e8f-d923e1e97c8a"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:30.394695" elapsed="0.130927"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-12T10:30:30.534402" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-12T10:30:30.545557" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-12T10:30:30.545689" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:30.529839" elapsed="0.016140"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-12T10:30:40.635456" level="INFO">Load report of the page when the wait timed out:
+URL: https://storemate-final.vercel.app/
+Navigation committed: yes
+readyState: interactive
+DOMContentLoaded: never fired, load: never fired
+Outstanding requests: 1
+GET https://storemate-final.vercel.app/assets/index-1O3x_dC-.js [script] open for 9241 ms</msg>
+<msg time="2026-10-12T10:30:40.903342" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-2.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-2.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-12T10:30:40.903686" level="INFO">See also file:///D:/Final-Project/test/robot-store-mate/robot-test-result/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-12T10:30:40.909874" level="INFO">Removed failed page page=b139360f-9061-4d8a-be50-66558f542ab8 after failure handling</msg>
+<msg time="2026-10-12T10:30:40.911398" level="FAIL">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2026-10-12T10:30:30.546401" elapsed="10.374792">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</kw>
+<status status="FAIL" start="2026-10-12T10:30:30.393978" elapsed="10.527881">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-12T10:30:41.008003" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-12T10:30:40.927105" elapsed="0.081085"/>
+</kw>
+<doc>เพิ่มจำนวนสินค้าจากหนึ่งเป็นสองและตรวจสอบยอดรวม</doc>
+<timeout value="2 minutes"/>
+<status status="FAIL" start="2026-10-12T10:30:30.389122" elapsed="10.619338">Setup failed:
+TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</test>
+<test id="s1-s1-t4" name="SPRS-TC-005: Login With Valid Credentials" line="53">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-12T10:30:41.021173" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\b18c8fd0-7a43-4d25-9d45-05bd6e1ffa77"}</msg>
+<msg time="2026-10-12T10:30:41.163436" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\b18c8fd0-7a43-4d25-9d45-05bd6e1ffa77"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:41.019818" elapsed="0.144159"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-12T10:30:41.176312" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-12T10:30:41.186829" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-12T10:30:41.186926" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:41.171955" elapsed="0.015459"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-12T10:30:51.309036" level="INFO">Load report of the page when the wait timed out:
+URL: https://storemate-final.vercel.app/
+Navigation committed: yes
+readyState: complete
+DOMContentLoaded: 8868 ms, load: 10033 ms
+Outstanding requests: 4
+GET https://fonts.gstatic.com/s/anuphan/v6/2sDeZGxYgY7LkLT0mX4Dan29.woff2 [font] open for 660 ms
+GET https://fonts.gstatic.com/s/anuphan/v6/2sDeZGxYgY7LkLT0mWoDag.woff2 [font] open for 660 ms
+GET https://api.store-mate-api.me/api/v1/owner/store [xhr] open for 414 ms
+GET https://api.store-mate-api.me/api/v1/products/grouped-by-category [xhr] open for 414 ms</msg>
+<msg time="2026-10-12T10:30:51.372754" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="browser/screenshot/fail-screenshot-3.png" target="_blank"&gt;&lt;img src="browser/screenshot/fail-screenshot-3.png" style="max-width:800px;max-height:800px;"/&gt;&lt;/a&gt;</msg>
+<msg time="2026-10-12T10:30:51.372999" level="INFO">See also file:///D:/Final-Project/test/robot-store-mate/robot-test-result/playwright-log.txt for additional details.</msg>
+<msg time="2026-10-12T10:30:51.375332" level="INFO">Removed failed page page=1e661392-32d4-47ff-aeb6-90128e99644d after failure handling</msg>
+<msg time="2026-10-12T10:30:51.375638" level="FAIL">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="FAIL" start="2026-10-12T10:30:41.188011" elapsed="10.196697">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</kw>
+<status status="FAIL" start="2026-10-12T10:30:41.019121" elapsed="10.366019">TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-12T10:30:51.458595" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-12T10:30:51.386227" elapsed="0.072569"/>
+</kw>
+<doc>เข้าสู่ระบบด้วยบัญชีทดสอบที่ถูกต้อง</doc>
+<timeout value="2 minutes"/>
+<status status="FAIL" start="2026-10-12T10:30:41.014573" elapsed="10.444499">Setup failed:
+TimeoutError: page.goto: Timeout 10000ms exceeded.
+Call log:
+  - navigating to "https://storemate-final.vercel.app/", waiting until "load"
+</status>
+</test>
+<test id="s1-s1-t5" name="SPRS-TC-001: Successful Payment" line="59">
+<kw name="Open Store" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2026-10-12T10:30:51.472829" level="INFO">{"browser": "chromium", "headless": true, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\a15c96e4-ba89-46ce-9870-728c893d2f79"}</msg>
+<msg time="2026-10-12T10:30:51.575421" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":true,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"D:\\Final-Project\\test\\robot-store-mate\\robot-test-result\\browser\\traces\\temp\\a15c96e4-ba89-46ce-9870-728c893d2f79"}</msg>
+<arg>chromium</arg>
+<arg>headless=${TRUE}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:51.471128" elapsed="0.105670"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2026-10-12T10:30:51.582243" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2026-10-12T10:30:51.588817" level="INFO">Successfully created context. </msg>
+<msg time="2026-10-12T10:30:51.588896" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2026-10-12T10:30:51.577688" elapsed="0.011420"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2026-10-12T10:30:53.266408" level="INFO">Successfully initialized new page object and opened url: https://storemate-final.vercel.app/</msg>
+<arg>${BASE_URL}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2026-10-12T10:30:51.589363" elapsed="1.677328"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:51.470369" elapsed="1.796462"/>
+</kw>
+<kw name="Login To Storefront">
+<kw name="Open Login Dialog">
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:53.270367" level="INFO">Clicks the element 'css=[data-test="login-btn"]'.</msg>
+<arg>css=[data-test="login-btn"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:53.268483" elapsed="0.086960"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:53.446885" level="INFO">Waited for Element with selector css=[data-test="email"] at state visible</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>visible</arg>
+<arg>timeout=15s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:53.356036" elapsed="0.091356"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:53.267999" elapsed="0.179746"/>
+</kw>
+<kw name="Submit Login">
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-12T10:30:53.452987" level="INFO">Fills the text 'test2@gmail.com' in the given field.</msg>
+<arg>css=[data-test="email"]</arg>
+<arg>${TEST_EMAIL}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:53.449923" elapsed="0.030993"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2026-10-12T10:30:53.485535" level="INFO">Fills the text '123456Za_' in the given field.</msg>
+<arg>css=[data-test="password"]</arg>
+<arg>${TEST_PASSWORD}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:53.481447" elapsed="0.024724"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:53.509553" level="INFO">Clicks the element 'css=[data-test="btn-submit"]'.</msg>
+<arg>css=[data-test="btn-submit"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:53.506721" elapsed="0.077810"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:54.409613" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state visible</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:53.585136" elapsed="0.824904"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:57.275042" level="INFO">Waited for Element with selector text=เข้าสู่ระบบสำเร็จ at state hidden</msg>
+<arg>text=เข้าสู่ระบบสำเร็จ</arg>
+<arg>hidden</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:54.410384" elapsed="2.865193"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:57.289302" level="INFO">Waited for Element with selector css=[data-test="home-button"] at state visible</msg>
+<arg>css=[data-test="home-button"]</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.276086" elapsed="0.013849"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:53.448333" elapsed="3.842157"/>
+</kw>
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-12T10:30:57.575470" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.291060" elapsed="0.284949"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-12T10:30:57.585642" level="INFO">${current_url} = https://storemate-final.vercel.app/product/53</msg>
+<var>${current_url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.576630" elapsed="0.009176"/>
+</kw>
+<kw name="Log" owner="BuiltIn">
+<msg time="2026-10-12T10:30:57.589554" level="INFO">Storefront product URL: https://storemate-final.vercel.app/product/53</msg>
+<arg>Storefront product URL: ${current_url}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.586794" elapsed="0.003087"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:57.648283" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.590512" elapsed="0.058112"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:53.267328" elapsed="4.381530"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:57.658927" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.650193" elapsed="0.008963"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:57.660865" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.659408" elapsed="0.037716"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:57.649337" elapsed="0.048166"/>
+</kw>
+<kw name="Clear Cart If Needed">
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-12T10:30:57.703804" level="INFO">${remove_all} = xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</msg>
+<var>${remove_all}</var>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.700483" elapsed="0.003474"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-12T10:30:57.708509" level="INFO">${empty_cart} = xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</msg>
+<var>${empty_cart}</var>
+<arg>xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.704510" elapsed="0.004188"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:57.948062" level="INFO">Waited for Element with selector xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>xpath=//button[normalize-space(.)="ลบออกทั้งหมด"] | //*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.709310" elapsed="0.239254"/>
+</kw>
+<kw name="Get Element Count" owner="Browser">
+<msg time="2026-10-12T10:30:57.963767" level="INFO">${item_count} = 1</msg>
+<var>${item_count}</var>
+<arg>${remove_all}</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the count of elements found with ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.949116" elapsed="0.014733"/>
+</kw>
+<if>
+<branch type="IF" condition="${item_count} &gt; 0">
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="radio-all-product"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:57.965051" elapsed="0.083971"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:58.052063" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ลบออกทั้งหมด"]'.</msg>
+<arg>${remove_all}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:58.049616" elapsed="0.097640"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:30:58.149946" level="INFO">Clicks the element 'xpath=//button[normalize-space(.)="ยืนยัน"]'.</msg>
+<arg>xpath=//button[normalize-space(.)="ยืนยัน"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:58.147673" elapsed="0.431881"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:57.964137" elapsed="0.615699"/>
+</branch>
+<status status="PASS" start="2026-10-12T10:30:57.964063" elapsed="0.615991"/>
+</if>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:58.908030" level="INFO">Waited for Element with selector xpath=//*[normalize-space(.)="ไม่มีสินค้าในรถเข็น"] at state visible</msg>
+<arg>${empty_cart}</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:58.580586" elapsed="0.328053"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:57.698810" elapsed="1.210226"/>
+</kw>
+<kw name="Open Product">
+<kw name="Go To" owner="Browser">
+<msg time="2026-10-12T10:30:59.093767" level="INFO">Successfully opened URL https://storemate-final.vercel.app/product/53</msg>
+<arg>${BASE_URL}product/53</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Navigates to the given ``url``.</doc>
+<status status="PASS" start="2026-10-12T10:30:58.912212" elapsed="0.181781"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:30:59.997909" level="INFO">Waited for Element with selector css=[data-test="btn-add-to-cart"] at state enabled</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<arg>enabled</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:30:59.094258" elapsed="0.904177"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:30:58.910445" elapsed="1.088209"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:31:00.001799" level="INFO">Clicks the element 'css=[data-test="btn-add-to-cart"]'.</msg>
+<arg>css=[data-test="btn-add-to-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:30:59.999355" elapsed="0.068600"/>
+</kw>
+<kw name="Open Cart">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:31:00.076888" level="INFO">Waited for Element with selector css=[data-test="click-shop-cart"] at state visible</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<arg>visible</arg>
+<arg>timeout=30s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:31:00.069330" elapsed="0.007928"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:31:00.078922" level="INFO">Clicks the element 'css=[data-test="click-shop-cart"]'.</msg>
+<arg>css=[data-test="click-shop-cart"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:00.077527" elapsed="0.064503"/>
+</kw>
+<status status="PASS" start="2026-10-12T10:31:00.068449" elapsed="0.073855"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:00.994442" level="INFO">Text: ['1']</msg>
+<arg>css=[data-test="item-quantity"]</arg>
+<arg>==</arg>
+<arg>1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:00.143161" elapsed="0.851635"/>
+</kw>
+<kw name="Check Checkbox" owner="Browser">
+<arg>css=[data-test="checkbox-product-53"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Checks the checkbox or selects radio button found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:00.995962" elapsed="0.077800"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:31:01.078711" level="INFO">Clicks the element 'css=[data-test="btn-payment"]'.</msg>
+<arg>css=[data-test="btn-payment"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:01.075547" elapsed="0.069151"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:31:01.981222" level="INFO">Waited for Element with selector css=[data-test="address"] at state visible</msg>
+<arg>css=[data-test="address"]</arg>
+<arg>visible</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:31:01.145826" elapsed="0.835616"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:01.998743" level="INFO">Text: ['123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150']</msg>
+<arg>css=[data-test="address"]</arg>
+<arg>*=</arg>
+<arg>123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:01.981998" elapsed="0.016929"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:02.021116" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200']</msg>
+<arg>css=[data-test="order-item"]</arg>
+<arg>*=</arg>
+<arg>X 1</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:01.999469" elapsed="0.021819"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:02.035900" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200']</msg>
+<arg>css=[data-test="order-item"]</arg>
+<arg>*=</arg>
+<arg>฿ 200</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.021878" elapsed="0.014190"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:02.051832" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน']</msg>
+<arg>css=[data-test="product-name"]</arg>
+<arg>*=</arg>
+<arg>พิเศษสบู่ 3 ก้อน</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.036674" elapsed="0.015423"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:02.077780" level="INFO">Text: ['หน้าหลัก\nรถเข็น\nสรุปคำสั่งซื้อ\nสรุปคำสั่งซื้อ\nที่อยู่ในการจัดส่ง\ntest aieieie\n123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150\nเปลี่ยน\nพิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200\nเลือกช่องทางการชำระเงิน\n\nพร้อมเพย์ (PromptPay)\n\nสแกน QR Code เพื่อชำระเงินทันที\n\nบัตรเครดิต / บัตรเดบิต\n\nVisa , Mastercard\n\nเก็บเงินปลายทาง\n\nชำระเงินเมื่อได้รับสินค้า\n\nยอดชำระทั้งหมด\n฿ 200\nยืนยันการชำระเงิน']</msg>
+<arg>role=main</arg>
+<arg>*=</arg>
+<arg>ยอดชำระทั้งหมด</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.052820" elapsed="0.025337"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:02.098351" level="INFO">Text: ['หน้าหลัก\nรถเข็น\nสรุปคำสั่งซื้อ\nสรุปคำสั่งซื้อ\nที่อยู่ในการจัดส่ง\ntest aieieie\n123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150\nเปลี่ยน\nพิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200\nเลือกช่องทางการชำระเงิน\n\nพร้อมเพย์ (PromptPay)\n\nสแกน QR Code เพื่อชำระเงินทันที\n\nบัตรเครดิต / บัตรเดบิต\n\nVisa , Mastercard\n\nเก็บเงินปลายทาง\n\nชำระเงินเมื่อได้รับสินค้า\n\nยอดชำระทั้งหมด\n฿ 200\nยืนยันการชำระเงิน']</msg>
+<arg>role=main</arg>
+<arg>*=</arg>
+<arg>฿ 200</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.079337" elapsed="0.019206"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:02.115456" level="INFO">Text: ['หน้าหลัก\nรถเข็น\nสรุปคำสั่งซื้อ\nสรุปคำสั่งซื้อ\nที่อยู่ในการจัดส่ง\ntest aieieie\n123 ถนนสุขุมวิท ต.บางขุนเทียน อ.เขตจอมทอง จ.กรุงเทพมหานคร 10150\nเปลี่ยน\nพิเศษสบู่ 3 ก้อน\n฿ 200\nX 1\n฿ 200\nเลือกช่องทางการชำระเงิน\n\nพร้อมเพย์ (PromptPay)\n\nสแกน QR Code เพื่อชำระเงินทันที\n\nบัตรเครดิต / บัตรเดบิต\n\nVisa , Mastercard\n\nเก็บเงินปลายทาง\n\nชำระเงินเมื่อได้รับสินค้า\n\nยอดชำระทั้งหมด\n฿ 200\nยืนยันการชำระเงิน']</msg>
+<arg>role=main</arg>
+<arg>*=</arg>
+<arg>ยืนยันการชำระเงิน</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.099383" elapsed="0.016249"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:31:02.117652" level="INFO">Clicks the element 'css=[data-test="select-destination-desktop"]'.</msg>
+<arg>css=[data-test="select-destination-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.116018" elapsed="0.048943"/>
+</kw>
+<kw name="Click" owner="Browser">
+<msg time="2026-10-12T10:31:02.170901" level="INFO">Clicks the element 'css=[data-test="btn-confirm-payment-desktop"]'.</msg>
+<arg>css=[data-test="btn-confirm-payment-desktop"]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.167528" elapsed="0.066036"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2026-10-12T10:31:02.235860" level="INFO">${newest_order} = xpath=(//*[starts-with(@data-test, 'order-card-')])[1]</msg>
+<var>${newest_order}</var>
+<arg>xpath=(//*[starts-with(@data-test, 'order-card-')])[1]</arg>
+<doc>Returns the given values which can then be assigned to a variable.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.234337" elapsed="0.001602"/>
+</kw>
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2026-10-12T10:31:08.304430" level="INFO">Waited for Element with selector xpath=(//*[starts-with(@data-test, 'order-card-')])[1] at state visible</msg>
+<arg>${newest_order}</arg>
+<arg>visible</arg>
+<arg>timeout=60s</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2026-10-12T10:31:02.236609" elapsed="6.068106"/>
+</kw>
+<kw name="Get Url" owner="Browser">
+<msg time="2026-10-12T10:31:08.309060" level="INFO">${url} = https://storemate-final.vercel.app/orders</msg>
+<var>${url}</var>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns the current URL.</doc>
+<status status="PASS" start="2026-10-12T10:31:08.305200" elapsed="0.003983"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${url}</arg>
+<arg>/orders</arg>
+<doc>Fails if the `container` does not contain the `item` one or more times.</doc>
+<status status="PASS" start="2026-10-12T10:31:08.309968" elapsed="0.001575"/>
+</kw>
+<kw name="Get Text" owner="Browser">
+<msg time="2026-10-12T10:31:08.329980" level="INFO">Text: ['พิเศษสบู่ 3 ก้อน']</msg>
+<arg>${newest_order}//*[@data-test="order-item-name"]</arg>
+<arg>*=</arg>
+<arg>พิเศษสบู่ 3 ก้อน</arg>
+<tag>Assertion</tag>
+<tag>Getter</tag>
+<tag>PageContent</tag>
+<doc>Returns text attribute of the element found by ``selector``.</doc>
+<status status="PASS" start="2026-10-12T10:31:08.312549" elapsed="0.017603"/>
+</kw>
+<kw name="Close Browser" owner="Browser" type="TEARDOWN">
+<msg time="2026-10-12T10:31:08.449687" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2026-10-12T10:31:08.330920" elapsed="0.118972"/>
+</kw>
+<doc>เพิ่มสินค้าหนึ่งชิ้น ตรวจสอบคำสั่งซื้อ และชำระเงินสำเร็จ</doc>
+<timeout value="2 minutes"/>
+<status status="PASS" start="2026-10-12T10:30:51.465509" elapsed="16.984689"/>
+</test>
+<status status="FAIL" start="2026-10-12T10:30:03.304564" elapsed="65.154535"/>
+</suite>
+<status status="FAIL" start="2026-10-12T10:30:03.260136" elapsed="65.207330"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="3" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Robot-Tests" id="s1" pass="2" fail="3" skip="0">Robot-Tests</stat>
+<stat name="Store Mate" id="s1-s1" pass="2" fail="3" skip="0">Robot-Tests.Store Mate</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

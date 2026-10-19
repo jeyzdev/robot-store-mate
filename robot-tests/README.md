@@ -10,10 +10,10 @@ Run these commands from the `robot-store-mate` directory.
 python -m venv .venv
 .venv\Scripts\Activate.ps1
 python -m pip install -r requirements.txt
-rfbrowser init chromium
+python -m Browser.entry install chromium
 ```
 
-Node.js 18, 20, or 22 is supported by the pinned Browser library. The first `rfbrowser init` downloads Playwright's Chromium browser.
+The pinned BrowserBatteries package includes the Node.js runtime and Browser library dependencies. Install Chromium once after installing the Python packages.
 
 ## Run
 
@@ -28,4 +28,4 @@ $env:STOREMATE_TEST_EMAIL = 'test2@gmail.com'
 $env:STOREMATE_TEST_PASSWORD = 'your-test-password'
 ```
 
-The suite runs cases sequentially because they share the same test account and shopping cart. TC-001 submits a Stripe test-mode payment.
+The suite contains SPRS-TC-002 through SPRS-TC-007 and runs cases sequentially because they share the same test account and shopping cart. SPRS-TC-006 submits a Stripe test-mode payment with card `4242 4242 4242 4242`; SPRS-TC-007 checks that card details are required.

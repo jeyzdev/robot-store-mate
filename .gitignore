@@ -11,6 +11,11 @@ __pycache__/
 
 # Robot Framework output (logs, reports, XML, screenshots, traces)
 robot-results*/
+/output.xml
+/log.html
+/report.html
+/playwright-log*.txt
+/browser/
 
 # Local environment variables and secrets
 .env
